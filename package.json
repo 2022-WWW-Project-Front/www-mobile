@@ -25,6 +25,7 @@
     "@typescript-eslint/eslint-plugin": "latest",
     "@typescript-eslint/parser": "latest",
     "@vitejs/plugin-react": "^2.2.0",
+    "@yarnpkg/sdks": "^3.0.0-rc.27",
     "eslint": "^8.26.0",
     "eslint-plugin-react": "latest",
     "prettier": "^2.7.1",
