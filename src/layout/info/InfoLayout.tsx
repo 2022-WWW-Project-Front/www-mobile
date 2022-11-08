@@ -1,7 +1,7 @@
 import React from 'react';
 
 const InfoLayout = () => {
-  return <div>Info</div>;
+  return <div>InfoLayout</div>;
 };
 
 export default InfoLayout;

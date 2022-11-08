@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ArtistLayout = () => {
-  return <div></div>;
+  return <div>ArtistLayout</div>;
 };
 
 export default ArtistLayout;
