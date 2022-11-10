@@ -9,10 +9,10 @@ export const HeaderLayout = ({ www }: HeaderProps) => {
     <HeaderContainer bgColor={www ? 'var(--white)' : 'var(--main1)'}>
       <TopContainer>
         <Logo
-          side={www ? 'var(--black-400)' : 'var(--white)'}
+          side={www ? 'var(--black-500)' : 'var(--white)'}
           center={www ? 'var(--main1)' : 'var(--white)'}
         />
-        <Menu color={www ? 'var(--black-400)' : 'var(--white)'} />
+        <Menu color={www ? 'var(--black-500)' : 'var(--white)'} />
       </TopContainer>
     </HeaderContainer>
   );
@@ -20,6 +20,8 @@ export const HeaderLayout = ({ www }: HeaderProps) => {
 
 const HeaderContainer = styled.div<{ bgColor: string }>`
   background-color: ${({ bgColor }) => bgColor};
+  position: fixed;
+  z-index: 99;
   width: 100vw;
   height: 74px;
 `;
@@ -29,5 +31,4 @@ const TopContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  margin: 0 auto;
 `;
