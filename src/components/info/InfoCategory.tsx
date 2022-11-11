@@ -1,19 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { InfoCategoryLayout } from '../../layout/info/InfoCategoryLayout';
 
 const InfoCategory = () => {
   const categoryList = [
-    { category: 'WWW', url: '' },
-    { category: 'HOW', url: '/how' },
-    { category: 'CREDIT', url: '/credit' },
-    { category: 'FONT', url: '/font' }
+    { category: 'WWW', url: 'exhibition' },
+    { category: 'HOW', url: 'how' },
+    { category: 'CREDIT', url: 'credit' },
+    { category: 'FONT', url: 'font' }
   ];
-
-  const [active, setActive] = useState('WWW');
 
   return (
     <div>
-      <InfoCategoryLayout list={categoryList} active={active} setActive={setActive} />
+      <InfoCategoryLayout list={categoryList} />
     </div>
   );
 };

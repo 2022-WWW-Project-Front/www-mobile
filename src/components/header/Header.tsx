@@ -1,5 +1,5 @@
 import React from 'react';
-import { HeaderLayout } from '../../layout/header/HeaderLayout';
+import { HeaderLayout } from '../../layout/common/HeaderLayout';
 import { useLocation } from 'react-router-dom';
 
 export interface HeaderProps {

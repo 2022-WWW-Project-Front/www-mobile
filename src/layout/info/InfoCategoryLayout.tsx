@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 interface ListProps {
   category: string;
@@ -9,37 +9,42 @@ interface ListProps {
 
 interface InfoCategoryProps {
   list: Array<ListProps>;
-  active: string;
-  setActive: (category: string) => void;
 }
 
-export const InfoCategoryLayout = ({ list, active, setActive }: InfoCategoryProps) => {
+export const InfoCategoryLayout = ({ list }: InfoCategoryProps) => {
   return (
-    <CategoryGrid>
-      {list.map(({ category, url }: ListProps) => (
-        <Link
-          key={category}
-          to={`/www${url}`}
-          style={{ textDecoration: 'none' }}
-          onClick={() => setActive(category)}
-        >
-          <Tab bgColor={active === category ? 'var(--main2)' : 'var(--main1)'}>{category}</Tab>
-        </Link>
-      ))}
-    </CategoryGrid>
+    <div>
+      <CategoryGrid>
+        {list.map(({ category, url }: ListProps) => (
+          <NavLink
+            key={category}
+            to={`/www/${url}`}
+            style={({ isActive }) => ({
+              backgroundColor: isActive ? 'var(--main2)' : 'var(--main1)',
+              textDecoration: 'none'
+            })}
+          >
+            <Tab>{category}</Tab>
+          </NavLink>
+        ))}
+      </CategoryGrid>
+    </div>
   );
 };
 
 const CategoryGrid = styled.div`
   display: grid;
+  background-color: var(--white);
+  position: fixed;
+  top: 4.625rem;
+  width: 100vw;
   grid-template-columns: repeat(2, 1fr);
   gap: 1px;
 `;
 
-const Tab = styled.div<{ bgColor: string }>`
+const Tab = styled.div`
   height: 2.5rem;
   color: var(--white);
-  background-color: ${({ bgColor }) => bgColor};
   display: flex;
   justify-content: center;
   align-items: center;
