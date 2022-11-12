@@ -28,6 +28,12 @@
   font-weight: 400;
   src: url("/public/fonts/www.woff");
 }
+@font-face {
+  font-family: 'NotoSansKR';
+  font-style: normal;
+  font-weight: 700;
+  src: url("/public/fonts/NotoSansKR-Bold.woff");
+}
 
 #root {
   font-family: 'Pretendard', sans-serif;
@@ -51,4 +57,46 @@
   --lead: #FF7F00;
   --serve: #00A7FF;
   --assist: #28AD1D;
+}
+
+#marker:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background-color: #0475f4;
+  bottom: 1px;
+  left: 0.875rem;
+  width: 0.938rem;
+  height: 0.938rem;
+  transform: rotate(55deg) skew(17deg);
+}
+#marker {
+  position: relative;
+  background-color: #0475f4;
+  width: 98.6px;
+  padding: 5px;
+  border-radius: 23px;
+  display: flex;
+  transform: scale(0.8);
+}
+#marker__cafe {
+  background-image: url("https://ssl.pstatic.net/static/maps/v5/pc/20220531112111/marker-face@2x.png");
+  background-size: 263px 263px;
+  background-position: 0 -35px;
+  overflow: hidden;
+  display: inline-block;
+  width: 33px;
+  height: 33px;
+}
+#marker__place{
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'NotoSansKR', sans-serif;
+  letter-spacing: -3.7px;
+  color: #fff;
+  padding:0 9px 0 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
 }

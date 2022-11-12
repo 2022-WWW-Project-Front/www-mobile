@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import NaverMap from '../../components/info/NaverMap';
 
 const HowLayout = () => {
   return (
@@ -34,6 +35,7 @@ const HowLayout = () => {
             <br />• &nbsp;전시장 주차공간이 없사오니 대중교통을 이용해주세요.
           </SubContents2>
         </SubContents1>
+        <NaverMap />
       </Contents>
       <Contents>
         <p>WHO</p>

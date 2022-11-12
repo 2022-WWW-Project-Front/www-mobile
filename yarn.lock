@@ -611,6 +611,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/geojson@npm:*":
+  version: 7946.0.10
+  resolution: "@types/geojson@npm:7946.0.10"
+  checksum: 12c407c2dc93ecb26c08af533ee732f1506a9b29456616ba7ba1d525df96206c28ddf44a528f6a5415d7d22893e9d967420940a9c095ee5e539c1eba5fefc1f4
+  languageName: node
+  linkType: hard
+
 "@types/hoist-non-react-statics@npm:*":
   version: 3.3.1
   resolution: "@types/hoist-non-react-statics@npm:3.3.1"
@@ -644,7 +651,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*":
+"@types/navermaps@npm:^3.6.0":
+  version: 3.6.0
+  resolution: "@types/navermaps@npm:3.6.0"
+  dependencies:
+    "@types/geojson": "*"
+  checksum: 6e30fcc83f6a801ac04adf0dca46b168472888cf3111971c69165cf20c286d7c298ecf896798093ae4afe52f283b083a5cd7f91413844e87402b017f85f5eb91
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:*, @types/node@npm:^18.11.9":
   version: 18.11.9
   resolution: "@types/node@npm:18.11.9"
   checksum: cc0aae109e9b7adefc32eecb838d6fad931663bb06484b5e9cbbbf74865c721b03d16fd8d74ad90e31dbe093d956a7c2c306ba5429ba0c00f3f7505103d7a496
@@ -5397,6 +5413,8 @@ __metadata:
   dependencies:
     "@reduxjs/toolkit": ^1.8.6
     "@types/eslint": ^8
+    "@types/navermaps": ^3.6.0
+    "@types/node": ^18.11.9
     "@types/prettier": ^2
     "@types/react": ^18.0.22
     "@types/react-dom": ^18.0.7
