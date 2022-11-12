@@ -80,7 +80,7 @@
   transform: scale(0.8);
 }
 #marker__cafe {
-  background-image: url("https://ssl.pstatic.net/static/maps/v5/pc/20220531112111/marker-face@2x.png");
+  background-image: url("/public/assets/cafe.png");
   background-size: 263px 263px;
   background-position: 0 -35px;
   overflow: hidden;

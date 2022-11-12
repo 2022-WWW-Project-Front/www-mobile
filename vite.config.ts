@@ -9,21 +9,9 @@ dns.setDefaultResultOrder('verbatim');
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd());
-  console.log(env);
-  const htmlPlugin = () => {
-    return {
-      name: 'html-transform',
-      transformIndexHtml(html: string) {
-        return html.replace(/<%(.*?)%/g, function (match, p1) {
-          return env[p1];
-        });
-      }
-    };
-  };
   return {
     plugins: [
       react(),
-      htmlPlugin(),
       createHtmlPlugin({
         minify: true,
         inject: {

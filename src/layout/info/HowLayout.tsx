@@ -69,7 +69,7 @@ export default HowLayout;
 
 const TitleArea = styled.div`
   height: 9.375rem;
-  padding-bottom: 2rem;
+  padding-bottom: 1.4rem;
   border-bottom: var(--black-100) solid 1px;
   box-sizing: border-box;
   display: flex;
