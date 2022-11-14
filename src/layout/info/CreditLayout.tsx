@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import CreditDetailLayout from './CreditDetailLayout';
 
 interface CreditProps {
   DirectorList: {
@@ -8,10 +9,18 @@ interface CreditProps {
       role: string;
       name: string;
       mw?: string;
+      email: string | null;
+      links?: {
+        instagram?: string;
+        github?: string;
+      }[];
     }[];
   }[];
+  modal: boolean;
+  setModal: (modal: boolean) => void;
 }
-const CreditLayout = ({ DirectorList }: CreditProps) => {
+
+const CreditLayout = ({ DirectorList, modal, setModal }: CreditProps) => {
   return (
     <div>
       <TitleArea>
@@ -30,11 +39,14 @@ const CreditLayout = ({ DirectorList }: CreditProps) => {
         {DirectorList.map(({ part, list }, idx) => (
           <GridCard key={idx} className="card">
             <strong>{part}</strong>
-            {list.map(({ role, name, mw }) => (
-              <MemberList key={name} bgColor={role}>
+            {list.map(({ role, name, mw, email, links }) => (
+              <Member key={name} bgColor={role}>
                 <span>{name}</span>
                 {mw && <span className="mw">{mw}</span>}
-              </MemberList>
+                {links && modal && (
+                  <CreditDetailLayout name={name} email={email} links={links} close={setModal} />
+                )}
+              </Member>
             ))}
           </GridCard>
         ))}
@@ -132,7 +144,7 @@ const GridCard = styled.div`
   }
 `;
 
-const MemberList = styled.div<{ bgColor: string }>`
+const Member = styled.div<{ bgColor: string }>`
   font-weight: 500;
   position: relative;
   padding: 0.813rem 0 0 1.563rem;
