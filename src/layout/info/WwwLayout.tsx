@@ -67,10 +67,12 @@ const TitleArea = styled.div`
   font-family: 'www', 'Pretendard', sans-serif;
   font-size: 1.688rem;
   color: var(--black-400);
+  white-space: nowrap;
 `;
 
 const PosterPlace = styled.div`
   height: 100%;
+  min-width: 200px;
   margin: 2.125rem 1.25rem 3.313rem;
   display: flex;
   justify-content: center;
