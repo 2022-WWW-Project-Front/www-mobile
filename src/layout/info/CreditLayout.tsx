@@ -133,7 +133,7 @@ const GridCard = styled.div`
   color: var(--black-200);
   font-weight: 600;
   font-size: 0.9rem;
-  padding: 2.15rem 2rem;
+  padding: 2.15rem 0 0 2rem;
   display: flex;
   flex-direction: column;
   white-space: nowrap;
