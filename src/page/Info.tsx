@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 
 const Info = () => {
   return (
-    <div style={{ paddingTop: '74px' }}>
+    <div style={{ paddingTop: '10.125rem' }}>
       <InfoCategory />
       <Outlet />
     </div>

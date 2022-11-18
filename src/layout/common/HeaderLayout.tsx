@@ -23,12 +23,12 @@ const HeaderContainer = styled.div<{ bgColor: string }>`
   position: fixed;
   z-index: 99;
   width: 100vw;
-  height: 74px;
+  height: 4.625rem;
 `;
 
 const TopContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem;
 `;

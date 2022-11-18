@@ -11,8 +11,8 @@ import Fashion from './components/artwork/Fashion';
 import Living from './components/artwork/Living';
 import ArtistDetail from './components/artist/ArtistDetail';
 import ArtistList from './components/artist/ArtistList';
-import Www from './components/info/Www';
-import How from './components/info/How';
+import WwwLayout from './layout/info/WwwLayout';
+import HowLayout from './layout/info/HowLayout';
 import Credit from './components/info/Credit';
 import Font from './components/info/Font';
 import Header from './components/header/Header';
@@ -34,8 +34,8 @@ export const App = () => {
           <Route path=":artistId" element={<ArtistDetail />} />
         </Route>
         <Route path="www" element={<Info />}>
-          <Route index element={<Www />} />
-          <Route path="how" element={<How />} />
+          <Route path="exhibition" element={<WwwLayout />} />
+          <Route path="how" element={<HowLayout />} />
           <Route path="credit" element={<Credit />} />
           <Route path="font" element={<Font />} />
         </Route>

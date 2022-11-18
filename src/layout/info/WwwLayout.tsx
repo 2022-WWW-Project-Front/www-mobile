@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import Logo from '../../layout/header/Logo';
+import Logo from '../common/Logo';
 
-const Www = () => {
+const WwwLayout = () => {
   return (
     <div>
       <TitleArea>
@@ -54,7 +54,7 @@ const Www = () => {
   );
 };
 
-export default Www;
+export default WwwLayout;
 
 const TitleArea = styled.div`
   height: 9.375rem;
@@ -66,6 +66,7 @@ const TitleArea = styled.div`
   align-items: center;
   font-family: 'www', 'Pretendard', sans-serif;
   font-size: 1.688rem;
+  color: var(--black-400);
 `;
 
 const PosterPlace = styled.div`
