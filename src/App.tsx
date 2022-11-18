@@ -15,7 +15,8 @@ import WwwLayout from './layout/info/WwwLayout';
 import HowLayout from './layout/info/HowLayout';
 import Credit from './components/info/Credit';
 import Font from './components/info/Font';
-import Header from './components/header/Header';
+import Header from './components/common/Header';
+import Footer from './layout/common/Footer';
 
 export const App = () => {
   return (
@@ -40,6 +41,7 @@ export const App = () => {
           <Route path="font" element={<Font />} />
         </Route>
       </Routes>
+      <Footer />
     </>
   );
 };

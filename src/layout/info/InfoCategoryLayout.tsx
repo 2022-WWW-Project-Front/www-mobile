@@ -38,7 +38,7 @@ const CategoryGrid = styled.div`
   position: fixed;
   z-index: 10;
   top: 4.625rem;
-  width: 100vw;
+  width: 100%;
   grid-template-columns: repeat(2, 1fr);
   gap: 1px;
 `;

@@ -45,7 +45,7 @@ const HowLayout = () => {
           작가 20명
         </SubContents2>
       </Contents>
-      <Contents>
+      <Contents style={{ marginBottom: '8rem' }}>
         <p>WHAT</p>
         <SubContents2>
           • &nbsp;별도의 사전 예약이 없으며 무료 입장입니다.
