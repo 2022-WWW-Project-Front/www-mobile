@@ -20,15 +20,15 @@ export const HeaderLayout = ({ www }: HeaderProps) => {
 
 const HeaderContainer = styled.div<{ bgColor: string }>`
   background-color: ${({ bgColor }) => bgColor};
+  position: fixed;
+  z-index: 99;
   width: 100vw;
   height: 74px;
 `;
 
 const TopContainer = styled.div`
-  width: min(600px, 100%);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  margin: 0 auto;
 `;

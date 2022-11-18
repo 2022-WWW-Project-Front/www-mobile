@@ -9,11 +9,7 @@ export interface HeaderProps {
 const Header = () => {
   const { pathname } = useLocation();
   const www = pathname.includes('www');
-  return (
-    <div>
-      <HeaderLayout www={www} />
-    </div>
-  );
+  return <HeaderLayout www={www} />;
 };
 
 export default Header;

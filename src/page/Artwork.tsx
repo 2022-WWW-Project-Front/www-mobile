@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Artwork = () => {
-  return <div>ArtworkPage</div>;
+  return <div style={{ paddingTop: '74px' }}>ArtworkPage</div>;
 };
 
 export default Artwork;

@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Logo = ({ side = '#121820', center = '#1635F4' }) => {
+const Logo = ({ side = '#121820', center = '#1635F4', width = 95, height = 44 }) => {
   return (
     <div>
-      <svg width="95" height="44" viewBox="0 0 95 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg width={width} height={height} viewBox="0 0 95 44" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M65.3726 36.5979V29.6873H52.6687V36.5979H65.3726Z" fill={side} />
         <path d="M6.93969 7H0V36.5974H6.93969V7Z" fill={side} />
         <path d="M19.9151 7H12.9754V30.314H19.9151V7Z" fill={side} />
