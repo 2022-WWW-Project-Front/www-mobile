@@ -36,7 +36,7 @@ const CategoryGrid = styled.div`
   display: grid;
   background-color: var(--white);
   position: fixed;
-  z-index: 10;
+  z-index: 101;
   top: 4.625rem;
   width: 100%;
   grid-template-columns: repeat(2, 1fr);

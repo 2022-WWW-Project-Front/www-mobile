@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import Home from './page/Home';
+import HomePage from './page/HomePage';
 import Artwork from './page/Artwork';
 import Artist from './page/Artist';
 import Info from './page/Info';
@@ -23,7 +23,7 @@ export const App = () => {
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="artwork" element={<Artwork />}>
           <Route path="visual" element={<Visual />} />
           <Route path="media" element={<Media />} />
