@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Footer = () => {
   return (
     <FooterContainer>
-      <img src="/public/assets/Footer.svg" alt="footer" />
+      <img src="/assets/Footer.svg" alt="footer" />
     </FooterContainer>
   );
 };

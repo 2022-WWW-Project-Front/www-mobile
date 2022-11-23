@@ -12,7 +12,7 @@ const HomeLayout = () => {
         </Title>
         <DownLoadBook>
           <span>Book</span>
-          <img src="/public/assets/download.svg" alt="download icon" />
+          <img src="/assets/download.svg" alt="download icon" />
         </DownLoadBook>
       </MainBar>
       <VideoPlace></VideoPlace>

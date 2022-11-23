@@ -17,7 +17,7 @@ const MenuLayout = ({ closeAnimation, closeMenu }: MenuProps) => {
           <Link to="/">
             <Logo side={'var(--black-500)'} center={'var(--main1)'} />
           </Link>
-          <img src="/public/assets/closeBtn.svg" alt="close button" onClick={closeMenu} />
+          <img src="/assets/closeBtn.svg" alt="close button" onClick={closeMenu} />
         </TopContainer>
       </HeaderContainer>
       <MenuBox>
