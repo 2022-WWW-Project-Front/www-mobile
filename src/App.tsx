@@ -17,10 +17,14 @@ import Credit from './components/info/Credit';
 import Font from './components/info/Font';
 import Header from './components/common/Header';
 import Footer from './layout/common/Footer';
+import { store } from './stores';
+
+import 'swiper/css/bundle';
+import { Provider } from 'react-redux';
 
 export const App = () => {
   return (
-    <>
+    <Provider store={store}>
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -42,7 +46,7 @@ export const App = () => {
         </Route>
       </Routes>
       <Footer />
-    </>
+    </Provider>
   );
 };
 
