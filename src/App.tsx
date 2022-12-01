@@ -21,6 +21,7 @@ import { store } from './stores';
 
 import 'swiper/css/bundle';
 import { Provider } from 'react-redux';
+import ArtworkDetail from './components/artwork/ArtworkDetail';
 
 export const App = () => {
   return (
@@ -34,6 +35,7 @@ export const App = () => {
           <Route path="fashion" element={<Fashion />} />
           <Route path="living" element={<Living />} />
         </Route>
+        <Route path="artwork-detail/:artistId" element={<ArtworkDetail />} />
         <Route path="artist" element={<Artist />}>
           <Route index element={<ArtistList />} />
           <Route path=":artistId" element={<ArtistDetail />} />

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import CloseBtn from '../common/Icon/CloseBtn';
+import * as S from '../common/CommonStyled';
 import { Link } from 'react-router-dom';
 
 interface ArtistDetailProps {
@@ -26,9 +27,9 @@ const ArtistDetailLayout = ({ user, backToList }: ArtistDetailProps) => {
             <span>{name}</span>
           </Introduce>
         </div>
-        <BtnBox onClick={backToList}>
+        <S.BtnBox onClick={backToList}>
           <CloseBtn />
-        </BtnBox>
+        </S.BtnBox>
         <BtnContainer>
           <Link to="">
             <Btn bgColor="var(--black-400)">Contact{' >'}</Btn>
@@ -88,12 +89,6 @@ const Introduce = styled.div`
       margin: 0 0.5rem;
     }
   }
-`;
-
-const BtnBox = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
 `;
 
 const BtnContainer = styled.div`

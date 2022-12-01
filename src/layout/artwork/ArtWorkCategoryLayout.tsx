@@ -31,6 +31,7 @@ export default ArtWorkCategoryLayout;
 
 const ArtworkCategoryContainer = styled.div`
   position: fixed;
+  z-index: 200;
   top: 4.625rem;
   border-top: 1px var(--white) solid;
   box-sizing: border-box;
