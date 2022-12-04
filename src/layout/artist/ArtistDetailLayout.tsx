@@ -30,14 +30,18 @@ const ArtistDetailLayout = ({ user, backToList }: ArtistDetailProps) => {
         <S.BtnBox onClick={backToList}>
           <CloseBtn />
         </S.BtnBox>
-        <BtnContainer>
+        <S.BtnContainer>
           <Link to="">
-            <Btn bgColor="var(--black-400)">Contact{' >'}</Btn>
+            <S.Btn bgColor="var(--black-400)" border={true}>
+              Contact{' >'}
+            </S.Btn>
           </Link>
           <Link to={name}>
-            <Btn bgColor="var(--main1)">Artwork{' >'}</Btn>
+            <S.Btn bgColor="var(--main1)" border={true}>
+              Artwork{' >'}
+            </S.Btn>
           </Link>
-        </BtnContainer>
+        </S.BtnContainer>
       </ProfileImgContianer>
       <ContentContainer>
         <strong>{title}</strong>
@@ -91,28 +95,7 @@ const Introduce = styled.div`
   }
 `;
 
-const BtnContainer = styled.div`
-  position: absolute;
-  bottom: -1px;
-  right: 0;
-  display: flex;
-`;
-
-const Btn = styled.button<{ bgColor: string }>`
-  width: 6.25rem;
-  height: 2.5rem;
-  padding: 0;
-  color: var(--white);
-  text-decoration: none;
-  font-weight: 500;
-  background-color: ${({ bgColor }) => bgColor};
-  border: 1px ${({ bgColor }) => bgColor} solid;
-  box-sizing: content-box;
-`;
-
 const ContentContainer = styled.div`
-  //height: auto;
-  //min-height: 100% !important;
   padding: 3rem 2rem 4rem;
   display: block;
   overflow: auto;

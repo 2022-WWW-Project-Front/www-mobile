@@ -73,7 +73,6 @@ export default Artwork;
 
 const SwiperContainer = styled.div`
   background: var(--gradation-bg);
-  //height: 250vh;
   .swiper {
     width: 100%;
     height: 100%;
@@ -89,13 +88,5 @@ const SwiperContainer = styled.div`
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    //justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    //align-items: center;
   }
 `;

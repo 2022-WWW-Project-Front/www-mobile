@@ -1,7 +1,9 @@
 import React from 'react';
 import * as S from '../common/CommonStyled';
+import { useNavigate } from 'react-router-dom';
 
 const MediaLayout = () => {
+  const navigate = useNavigate();
   const test = [
     { url: '/assets/test/1.jpg', artistId: 'Apple' },
     { url: '/assets/test/2.jpg', artistId: 'Banana' },
@@ -23,7 +25,12 @@ const MediaLayout = () => {
     <S.Container length={test.length}>
       {test.map((artwork, idx) => {
         return (
-          <S.ImageBox key={artwork.url} url={artwork.url} index={idx}>
+          <S.ImageBox
+            key={artwork.url}
+            url={artwork.url}
+            index={idx}
+            onClick={() => navigate(`/artwork-detail/${artwork.artistId}`)}
+          >
             <img src={artwork.url} alt={artwork.artistId} />
           </S.ImageBox>
         );
