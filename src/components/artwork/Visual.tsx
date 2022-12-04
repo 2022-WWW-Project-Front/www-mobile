@@ -1,7 +1,8 @@
 import React from 'react';
+import VisualLayout from '../../layout/artwork/VisualLayout';
 
 const Visual = () => {
-  return <div>Visual</div>;
+  return <VisualLayout />;
 };
 
 export default Visual;

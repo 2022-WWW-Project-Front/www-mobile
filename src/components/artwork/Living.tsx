@@ -1,7 +1,8 @@
 import React from 'react';
+import LivingLayout from '../../layout/artwork/LivingLayout';
 
 const Living = () => {
-  return <div>Living</div>;
+  return <LivingLayout />;
 };
 
 export default Living;

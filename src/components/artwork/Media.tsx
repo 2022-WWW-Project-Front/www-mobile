@@ -1,7 +1,8 @@
 import React from 'react';
+import MediaLayout from '../../layout/artwork/MediaLayout';
 
 const Media = () => {
-  return <div>Media</div>;
+  return <MediaLayout />;
 };
 
 export default Media;
