@@ -1,7 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useLocation } from 'react-router-dom';
 
 const Footer = () => {
+  const { pathname } = useLocation();
+
+  if (pathname.includes('artwork-detail') || pathname.includes('artist/')) {
+    return null;
+  }
+
   return (
     <FooterContainer>
       <img src="/assets/Footer.svg" alt="footer" />

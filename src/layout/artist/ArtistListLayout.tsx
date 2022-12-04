@@ -7,7 +7,7 @@ const ArtistListLayout = () => {
     <div>
       <ArtistTitle>ARTIST</ArtistTitle>
       <ArtistContainer>
-        {Array.from(Array(20).keys()).map((i) => (
+        {Array.from(Array(4).keys()).map((i) => (
           <Link to={`${i}`} key={i}>
             <ArtistCard />
           </Link>
@@ -33,12 +33,14 @@ const ArtistTitle = styled.div`
 `;
 
 const ArtistContainer = styled.div`
+  min-height: calc(100vh - 26.3rem);
   height: fit-content;
   background: var(--gradation-bg);
   gap: 0.75rem;
   padding: 3rem 1.25rem 5rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  align-content: flex-start;
 `;
 
 const ArtistCard = styled.div`

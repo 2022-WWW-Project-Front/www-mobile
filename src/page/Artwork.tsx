@@ -28,6 +28,7 @@ const Artwork = () => {
 
   const onSlideChangeHistory = (props: any) => {
     dispatch(setActive({ idx: props.realIndex, part: props.slides[props.realIndex].dataset.history }));
+    window.scrollTo(0, 0);
   };
 
   const changeSlide = (part: string, idx: number) => {
@@ -73,6 +74,7 @@ export default Artwork;
 
 const SwiperContainer = styled.div`
   background: var(--gradation-bg);
+  min-height: 100vh;
   .swiper {
     width: 100%;
     height: 100%;

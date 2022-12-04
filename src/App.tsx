@@ -24,6 +24,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Provider } from 'react-redux';
 import { store } from './stores';
+import TopBtn from './layout/common/TopBtn';
 
 export const App = () => {
   return (
@@ -49,6 +50,7 @@ export const App = () => {
           <Route path="font" element={<Font />} />
         </Route>
       </Routes>
+      <TopBtn />
       <Footer />
     </Provider>
   );

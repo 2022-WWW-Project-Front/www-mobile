@@ -93,11 +93,10 @@ export default ArtworkDetailLayout;
 
 const ArtworkDetailContainer = styled.div`
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   background-color: var(--black-400);
-  position: fixed;
-  z-index: 999;
   overflow-y: auto;
+  overflow-x: hidden;
 `;
 
 const SwiperContainer = styled.div`
