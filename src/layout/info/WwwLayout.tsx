@@ -10,7 +10,7 @@ const WwwLayout = () => {
         <div>EXHIBITION MARKET</div>
       </TitleArea>
       <PosterPlace>
-        <Poster src={'/public/assets/poster.png'} alt={'www poster'} />
+        <Poster src={'/assets/poster.png'} alt={'www poster'} />
       </PosterPlace>
       <Description>
         <BlueTitle>

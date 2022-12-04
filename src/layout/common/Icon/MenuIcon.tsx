@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Menu = ({ color = '#fff' }) => {
+const MenuIcon = ({ color = '#fff' }) => {
   return (
     <div>
       <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -18,4 +18,4 @@ const Menu = ({ color = '#fff' }) => {
   );
 };
 
-export default Menu;
+export default MenuIcon;
