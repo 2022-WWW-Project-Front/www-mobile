@@ -8,6 +8,7 @@ import Living from '../components/artwork/Living';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { setActive } from '../stores/artwork';
+import ComingSoon from '../layout/common/ComingSoon';
 
 // swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -53,16 +54,20 @@ const Artwork = () => {
           }}
         >
           <SwiperSlide data-history="visual">
-            <Visual />
+            {/*<Visual />*/}
+            <ComingSoon />
           </SwiperSlide>
           <SwiperSlide data-history="media">
-            <Media />
+            {/*<Media />*/}
+            <ComingSoon />
           </SwiperSlide>
           <SwiperSlide data-history="fashion">
-            <Fashion />
+            {/*<Fashion />*/}
+            <ComingSoon />
           </SwiperSlide>
           <SwiperSlide data-history="living">
-            <Living />
+            {/*<Living />*/}
+            <ComingSoon />
           </SwiperSlide>
         </Swiper>
       </SwiperContainer>
@@ -81,6 +86,7 @@ const SwiperContainer = styled.div`
   }
 
   .swiper-slide {
+    min-height: 100vh;
     text-align: center;
     font-size: 18px;
     background: var(--gradation-bg);
