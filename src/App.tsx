@@ -17,11 +17,13 @@ import Credit from './components/info/Credit';
 import Font from './components/info/Font';
 import Header from './components/common/Header';
 import Footer from './layout/common/Footer';
-import { store } from './stores';
+import ArtworkDetail from './components/artwork/ArtworkDetail';
 
 import 'swiper/css/bundle';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 import { Provider } from 'react-redux';
-import ArtworkDetail from './components/artwork/ArtworkDetail';
+import { store } from './stores';
 
 export const App = () => {
   return (

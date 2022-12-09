@@ -52,3 +52,26 @@ export const BtnBox = styled.div`
   top: 0;
   right: 0;
 `;
+
+export const BtnContainer = styled.div`
+  position: absolute;
+  bottom: -0.5px;
+  right: 0;
+  display: flex;
+  a {
+    text-decoration: none;
+  }
+`;
+
+export const Btn = styled.div<{ bgColor: string; border: boolean }>`
+  width: 6.25rem;
+  height: 2.5rem;
+  color: var(--white);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-weight: 500;
+  background-color: ${({ bgColor }) => bgColor};
+  ${({ bgColor, border }) => border && `border: 1px ${bgColor} solid`};
+  box-sizing: content-box;
+`;
