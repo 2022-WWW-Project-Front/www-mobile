@@ -36,7 +36,7 @@ const ArtistDetailLayout = ({ user, backToList }: ArtistDetailProps) => {
               Contact{' >'}
             </S.Btn>
           </Link>
-          <Link to={name}>
+          <Link to={`/artwork-detail/Apple`}>
             <S.Btn bgColor="var(--main1)" border={true}>
               Artwork{' >'}
             </S.Btn>
@@ -54,12 +54,11 @@ const ArtistDetailLayout = ({ user, backToList }: ArtistDetailProps) => {
 export default ArtistDetailLayout;
 
 const ArtistDetailContainer = styled.div`
-  position: fixed;
-  z-index: 999;
+  margin-top: -4.625rem;
   overflow: auto;
   inset: 0;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background-color: var(--sub);
 `;
 

@@ -5,8 +5,11 @@ import styled from 'styled-components';
 import { HeaderProps } from '../../components/common/Header';
 import { Link } from 'react-router-dom';
 import MenuLayout from './MenuLayout';
+import { setTopBtn } from '../../stores/artwork';
+import { useDispatch } from 'react-redux';
 
 export const HeaderLayout = ({ www, menu, setMenu, closeAnimation, closeMenu }: HeaderProps) => {
+  const dispatch = useDispatch();
   return (
     <div>
       <HeaderContainer bgColor={www ? 'var(--white)' : 'var(--main1)'}>
@@ -17,7 +20,12 @@ export const HeaderLayout = ({ www, menu, setMenu, closeAnimation, closeMenu }: 
               center={www ? 'var(--main1)' : 'var(--white)'}
             />
           </Link>
-          <div onClick={() => setMenu(true)}>
+          <div
+            onClick={() => {
+              setMenu(true);
+              dispatch(setTopBtn(false));
+            }}
+          >
             <MenuIcon color={www ? 'var(--black-500)' : 'var(--white)'} />
           </div>
         </TopContainer>

@@ -8,6 +8,7 @@ import Living from '../components/artwork/Living';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { setActive } from '../stores/artwork';
+import ComingSoon from '../layout/common/ComingSoon';
 
 // swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -28,6 +29,7 @@ const Artwork = () => {
 
   const onSlideChangeHistory = (props: any) => {
     dispatch(setActive({ idx: props.realIndex, part: props.slides[props.realIndex].dataset.history }));
+    window.scrollTo(0, 0);
   };
 
   const changeSlide = (part: string, idx: number) => {
@@ -52,16 +54,20 @@ const Artwork = () => {
           }}
         >
           <SwiperSlide data-history="visual">
-            <Visual />
+            {/*<Visual />*/}
+            <ComingSoon />
           </SwiperSlide>
           <SwiperSlide data-history="media">
-            <Media />
+            {/*<Media />*/}
+            <ComingSoon />
           </SwiperSlide>
           <SwiperSlide data-history="fashion">
-            <Fashion />
+            {/*<Fashion />*/}
+            <ComingSoon />
           </SwiperSlide>
           <SwiperSlide data-history="living">
-            <Living />
+            {/*<Living />*/}
+            <ComingSoon />
           </SwiperSlide>
         </Swiper>
       </SwiperContainer>
@@ -73,12 +79,14 @@ export default Artwork;
 
 const SwiperContainer = styled.div`
   background: var(--gradation-bg);
+  min-height: 100vh;
   .swiper {
     width: 100%;
     height: 100%;
   }
 
   .swiper-slide {
+    min-height: 100vh;
     text-align: center;
     font-size: 18px;
     background: var(--gradation-bg);
