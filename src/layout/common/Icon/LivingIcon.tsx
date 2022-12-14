@@ -2,7 +2,7 @@ import React from 'react';
 
 const LivingIcon = ({ active = false }) => {
   return (
-    <div>
+    <div style={{ justifyContent: 'center', display: 'flex' }}>
       {active ? (
         <img src="/assets/living.png" alt="living icon" />
       ) : (
