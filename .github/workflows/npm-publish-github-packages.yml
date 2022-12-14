@@ -26,6 +26,9 @@ jobs:
             ${{ runner.OS }}-build-
             ${{ runner.OS }}-
 
+      - name: Create Environment File
+        run: echo ${{ secrets.NAVER_MAPS_ENV }} >> .env
+
       - name: Install Dependencies # 의존성 설치
         run: yarn install
 
