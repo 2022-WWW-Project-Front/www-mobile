@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 const Footer = () => {
   const { pathname } = useLocation();
 
-  if (pathname.includes('artwork-detail') || pathname.includes('artist/')) {
+  if (pathname.includes('artwork-detail') || pathname.includes('artist/') || pathname === '/') {
     return null;
   }
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import CreditDetailLayout from './CreditDetailLayout';
 
 interface CreditProps {
   DirectorList: {
@@ -9,18 +8,13 @@ interface CreditProps {
       role: string;
       name: string;
       mw?: string;
-      email: string | null;
-      links?: {
-        instagram?: string;
-        github?: string;
-      }[];
+      email?: string | null;
+      links?: string | null;
     }[];
   }[];
-  modal: boolean;
-  setModal: (modal: boolean) => void;
 }
 
-const CreditLayout = ({ DirectorList, modal, setModal }: CreditProps) => {
+const CreditLayout = ({ DirectorList }: CreditProps) => {
   return (
     <div>
       <TitleArea>
@@ -40,12 +34,9 @@ const CreditLayout = ({ DirectorList, modal, setModal }: CreditProps) => {
           <GridCard key={idx} className="card">
             <strong>{part}</strong>
             {list.map(({ role, name, mw, email, links }) => (
-              <Member key={name} bgColor={role}>
+              <Member key={name} bgColor={role} onClick={() => { if(links) {window.open(links)} else if(email) {navigator.clipboard.writeText(email).then(() => alert('copied e-mail'))}}}>
                 <span>{name}</span>
                 {mw && <span className="mw">{mw}</span>}
-                {links && modal && (
-                  <CreditDetailLayout name={name} email={email} links={links} close={setModal} />
-                )}
               </Member>
             ))}
           </GridCard>
