@@ -1,52 +1,71 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import CloseBtn from '../common/Icon/CloseBtn';
 import * as S from '../common/CommonStyled';
 import { Link } from 'react-router-dom';
 
 interface ArtistDetailProps {
-  user: {
-    profile: string;
+  artistDetail: {
+    id: number;
+    genre: string;
     name: string;
-    part: string;
-    title: string;
+    nickname: string;
+    email: string;
+    contact: string;
     description: string;
+    linkTree: string;
+    bio: string;
+    profileImage: string;
   };
+  isLoading: boolean;
   backToList: () => void;
 }
 
-const ArtistDetailLayout = ({ user, backToList }: ArtistDetailProps) => {
-  const { profile, name, part, title, description } = user;
+const ArtistDetailLayout = ({ artistDetail, isLoading, backToList }: ArtistDetailProps) => {
   return (
     <ArtistDetailContainer>
-      <ProfileImgContianer>
+      {isLoading ? (
+        <Loading />
+      ) : (
         <div>
-          <ProfileImage profile={profile} />
-          <Introduce>
-            <span>{part}</span>
-            <span>{name}</span>
-          </Introduce>
+          <ProfileImgContianer>
+            <div>
+              <ProfileImage profile={artistDetail?.profileImage} />
+              <Introduce>
+                <span>{artistDetail?.genre}</span>
+                <span>{artistDetail.nickname ? artistDetail.nickname : artistDetail.name}</span>
+              </Introduce>
+            </div>
+            <S.BtnBox onClick={backToList}>
+              <CloseBtn />
+            </S.BtnBox>
+            <S.BtnContainer>
+              <div
+                onClick={() => {
+                  if (artistDetail.linkTree) {
+                    window.open(artistDetail.linkTree);
+                  } else if (artistDetail.email) {
+                    navigator.clipboard.writeText(artistDetail.email).then(() => alert('copied e-mail'));
+                  }
+                }}
+              >
+                <S.Btn bgColor="var(--black-400)" border>
+                  Contact{' >'}
+                </S.Btn>
+              </div>
+              <Link to={`/artwork-detail/${artistDetail?.id}`}>
+                <S.Btn bgColor="var(--main1)" border>
+                  Artwork{' >'}
+                </S.Btn>
+              </Link>
+            </S.BtnContainer>
+          </ProfileImgContianer>
+          <ContentContainer>
+            <strong>{artistDetail?.description}</strong>
+            <div>{artistDetail?.bio}</div>
+          </ContentContainer>
         </div>
-        <S.BtnBox onClick={backToList}>
-          <CloseBtn />
-        </S.BtnBox>
-        <S.BtnContainer>
-          <Link to="">
-            <S.Btn bgColor="var(--black-400)" border={true}>
-              Contact{' >'}
-            </S.Btn>
-          </Link>
-          <Link to={`/artwork-detail/Apple`}>
-            <S.Btn bgColor="var(--main1)" border={true}>
-              Artwork{' >'}
-            </S.Btn>
-          </Link>
-        </S.BtnContainer>
-      </ProfileImgContianer>
-      <ContentContainer>
-        <strong>{title}</strong>
-        <div>{description}</div>
-      </ContentContainer>
+      )}
     </ArtistDetailContainer>
   );
 };
@@ -107,5 +126,38 @@ const ContentContainer = styled.div`
   div {
     margin-top: 1.625rem;
     line-height: 1.5rem;
+  }
+`;
+
+const rotate = keyframes`
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+`;
+
+const Loading = styled.div`
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 40%;
+  left: calc(50% - 1.5rem);
+  background: rgb(22, 53, 244);
+  background: linear-gradient(90deg, var(--main1) 0%, rgb(73, 235, 255) 65%, var(--main2) 100%);
+  animation: ${rotate} 1s linear forwards infinite;
+
+  &::after {
+    content: '';
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    position: absolute;
+    background-color: var(--sub);
   }
 `;

@@ -34,9 +34,9 @@ const CreditLayout = ({ DirectorList }: CreditProps) => {
           <GridCard key={idx} className="card">
             <strong>{part}</strong>
             {list.map(({ role, name, mw, email, links }) => (
-              <Member key={name} bgColor={role} onClick={() => { if(links) {window.open(links)} else if(email) {navigator.clipboard.writeText(email).then(() => alert('copied e-mail'))}}}>
+              <Member key={name} bgColor={role} linked={Boolean(links)} onClick={() => { if(links) {window.open(links)} else if(email) {navigator.clipboard.writeText(email).then(() => alert('copied e-mail'))}}}>
                 <span>{name}</span>
-                {mw && <span className="mw">{mw}</span>}
+                {mw && <p className="mw">{mw}</p>}
               </Member>
             ))}
           </GridCard>
@@ -135,7 +135,7 @@ const GridCard = styled.div`
   }
 `;
 
-const Member = styled.div<{ bgColor: string }>`
+const Member = styled.div<{ bgColor: string, linked:boolean }>`
   font-weight: 500;
   position: relative;
   padding: 0.813rem 0 0 1.563rem;
@@ -150,6 +150,10 @@ const Member = styled.div<{ bgColor: string }>`
     width: 0.813rem;
     height: 0.813rem;
     background-color: ${({ bgColor }) => bgColor};
+  }
+  span {
+    text-decoration-color: inherit;
+    ${({linked}) => linked && 'text-decoration: underline;'}
   }
   .mw {
     color: var(--black-100);

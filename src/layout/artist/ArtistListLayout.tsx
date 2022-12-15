@@ -2,14 +2,30 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const ArtistListLayout = () => {
+interface ArtistListProps {
+  artistList: {
+    id: number;
+    genre: string;
+    name: string;
+    nickname: string;
+    profileImage: string;
+    email: string;
+    contact: string;
+    description: string;
+    bio: string;
+  }[];
+}
+
+const ArtistListLayout = ({ artistList }: ArtistListProps) => {
   return (
     <div>
       <ArtistTitle>ARTIST</ArtistTitle>
       <ArtistContainer>
-        {Array.from(Array(4).keys()).map((i) => (
-          <Link to={`${i}`} key={i}>
-            <ArtistCard />
+        {artistList?.map((artist) => (
+          <Link to={`${artist.id}`} key={artist.id}>
+            <ArtistCard>
+              <img src={`${artist.profileImage}`} alt={artist.nickname} />
+            </ArtistCard>
           </Link>
         ))}
       </ArtistContainer>
@@ -44,10 +60,16 @@ const ArtistContainer = styled.div`
 `;
 
 const ArtistCard = styled.div`
-  background-color: var(--main2);
+  overflow: hidden;
+  position: relative;
+  background-color: var(--black-100);
   &:after {
     content: '';
     display: block;
     padding-bottom: 100%;
+  }
+  img {
+    width: 100%;
+    position: absolute;
   }
 `;
