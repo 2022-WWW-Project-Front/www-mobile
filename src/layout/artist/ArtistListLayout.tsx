@@ -15,7 +15,7 @@ const ArtistListLayout = ({ artistList }: ArtistListProps) => {
         {artistList?.map((artist) => (
           <Link to={`${artist.id}`} key={artist.id}>
             <ArtistCard>
-              <img src={`${artist.profileImage.replace('.jpeg', '_360p.jpeg')}`} alt={artist.nickname} />
+              <img src={`${artist.profileImage.replace('.jpg', '_360p.jpeg')}`} alt={artist.nickname} />
             </ArtistCard>
           </Link>
         ))}

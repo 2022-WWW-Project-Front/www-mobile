@@ -26,7 +26,7 @@ const ArtistDetailLayout = ({ artistDetail, isLoading, backToList }: ArtistDetai
         <div>
           <ProfileImgContianer>
             <div>
-              <ProfileImage profile={artistDetail?.profileImage.replace('.jpeg', '_360p.jpeg')} />
+              <ProfileImage profile={artistDetail?.profileImage.replace('.jpg', '_360p.jpeg')} />
               <Introduce>
                 <span>{artistDetail?.genre}</span>
                 <span>{artistDetail.nickname ? artistDetail.nickname : artistDetail.name}</span>
