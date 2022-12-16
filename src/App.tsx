@@ -30,9 +30,7 @@ import { isMobile } from 'react-device-detect';
 
 export const App = () => {
   useEffect(() => {
-    if (isMobile) {
-      window.location.href = 'https://m.wwweb.kr/';
-    } else {
+    if (!isMobile) {
       window.location.href = 'https://wwweb.kr/';
     }
   }, []);
