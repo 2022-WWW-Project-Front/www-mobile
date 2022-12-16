@@ -74,8 +74,7 @@ const Credit = () => {
           name: 'Jaecheol Jeong',
           email: 'anjwoc@gmail.com',
           links: ''
-        },
-        { role: 'var(--serve)', name: 'ash', email: '@', links: '' }
+        }
       ]
     },
     { part: 'Staff', list: [{ role: 'var(--lead)', name: 'All', links: null }] },

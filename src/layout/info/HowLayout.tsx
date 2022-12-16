@@ -15,8 +15,8 @@ const HowLayout = () => {
             12/18 SUN
           </SubContents1>
           <SubContents1>
-            10:00 - 19:00 <br />
-            10:00 - 19:00
+            12:00 - 22:00 <br />
+            12:00 - 22:00
           </SubContents1>
         </div>
       </WhenContents>

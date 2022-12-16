@@ -41,7 +41,7 @@ const ArtworkCategoryContainer = styled.div`
   width: 100%;
   min-width: 330px;
   background-color: var(--main1);
-  a {
+  div {
     text-decoration: none;
     div {
       display: flex;
@@ -49,7 +49,7 @@ const ArtworkCategoryContainer = styled.div`
       justify-content: center;
       align-items: center;
       span {
-        margin-top: 0.625rem;
+        padding-top: 0.625rem;
       }
     }
   }

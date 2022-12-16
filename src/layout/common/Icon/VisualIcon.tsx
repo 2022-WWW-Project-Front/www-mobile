@@ -2,7 +2,7 @@ import React from 'react';
 
 const VisualIcon = ({ active = false }) => {
   return (
-    <div>
+    <div style={{ justifyContent: 'center', display: 'flex' }}>
       {active ? (
         <img src="/assets/visual.png" alt="visual icon" />
       ) : (

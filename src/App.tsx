@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import HomePage from './page/HomePage';
@@ -18,15 +18,24 @@ import Font from './components/info/Font';
 import Header from './components/common/Header';
 import Footer from './layout/common/Footer';
 import ArtworkDetail from './components/artwork/ArtworkDetail';
-
-import 'swiper/css/bundle';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
 import { Provider } from 'react-redux';
 import { store } from './stores';
 import TopBtn from './layout/common/TopBtn';
 
+import 'swiper/css/bundle';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
+import { isMobile } from 'react-device-detect';
+
 export const App = () => {
+  useEffect(() => {
+    if (isMobile) {
+      window.location.href = 'https://m.wwweb.kr/';
+    } else {
+      window.location.href = 'https://wwweb.kr/';
+    }
+  }, [isMobile]);
   return (
     <Provider store={store}>
       <Header />

@@ -2,7 +2,7 @@ import React from 'react';
 
 const MediaIcon = ({ active = false }) => {
   return (
-    <div>
+    <div style={{ justifyContent: 'center', display: 'flex' }}>
       {active ? (
         <img src="/assets/media.png" alt="media icon" />
       ) : (
