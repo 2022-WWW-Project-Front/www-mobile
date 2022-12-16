@@ -70,5 +70,5 @@ jobs:
           AWS_DEFAULT_REGION: 'ap-northeast-2'
         run: |
           aws cloudfront create-invalidation \
-            --distribution-id E37FOS401R4E40 \
+            --distribution-id E2C49N8UG12HVC \
             --paths "/*"
