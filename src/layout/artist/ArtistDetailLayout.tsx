@@ -3,20 +3,10 @@ import styled, { keyframes } from 'styled-components';
 import CloseBtn from '../common/Icon/CloseBtn';
 import * as S from '../common/CommonStyled';
 import { Link } from 'react-router-dom';
+import { ArtistDetail } from '../../types';
 
 interface ArtistDetailProps {
-  artistDetail: {
-    id: number;
-    genre: string;
-    name: string;
-    nickname: string;
-    email: string;
-    contact: string;
-    description: string;
-    linkTree: string;
-    bio: string;
-    profileImage: string;
-  };
+  artistDetail: ArtistDetail;
   isLoading: boolean;
   backToList: () => void;
 }

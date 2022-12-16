@@ -5,9 +5,10 @@ import * as S from '../common/CommonStyled';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper';
 import { useNavigate } from 'react-router-dom';
+import { ArtworkDetailByArtist } from '../../types';
 
 interface ArtworkDetailProps {
-  artistDetail: any;
+  artistDetail: ArtworkDetailByArtist | undefined;
   isLoading: boolean;
 }
 
@@ -24,13 +25,13 @@ const ArtworkDetailLayout = ({ artistDetail, isLoading }: ArtworkDetailProps) =>
   const handle = () => {
     if (navigator.share) {
       navigator.share({
-        title: artistDetail.title,
-        text: artistDetail.description,
-        url: `https://m.wwweb.kr/artist-detail/${artistDetail.id}`
+        title: artistDetail?.title,
+        text: artistDetail?.description,
+        url: `https://m.wwweb.kr/artist-detail/${artistDetail?.id}`
       });
     } else if (navigator.clipboard) {
       navigator.clipboard
-        .writeText(`https://m.wwweb.kr/artist-detail/${artistDetail.id}`)
+        .writeText(`https://m.wwweb.kr/artist-detail/${artistDetail?.id}`)
         .then(() => alert('링크가 클립보드에 복사되었습니다.'));
     } else {
       alert('공유하기가 지원되지 않는 환경 입니다.');
@@ -56,9 +57,9 @@ const ArtworkDetailLayout = ({ artistDetail, isLoading }: ArtworkDetailProps) =>
               }}
               navigation
             >
-              {artistDetail.assets.map((asset: { url: string | undefined; artwork: string | undefined }) => (
-                <SwiperSlide key={asset.url}>
-                  <OneArtwork src={asset.url} alt={asset.url} />
+              {artistDetail?.assets.map((assets) => (
+                <SwiperSlide key={assets.url}>
+                  <OneArtwork src={assets.url} alt={assets.url} />
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -74,13 +75,13 @@ const ArtworkDetailLayout = ({ artistDetail, isLoading }: ArtworkDetailProps) =>
             </ShareBtn>
             <TitleContainer>
               <div>
-                <span>{artistDetail.assets[0].genre}</span>
-                <span>{artistDetail.artist.nickname || artistDetail.artist.name}</span>
+                <span>{artistDetail?.assets[0].genre}</span>
+                <span>{artistDetail?.artist.nickname || artistDetail?.artist.nickname}</span>
               </div>
-              <strong>{artistDetail.title}</strong>
+              <strong>{artistDetail?.title}</strong>
             </TitleContainer>
             <DescriptionContainer ref={descriptionBox}>
-              {artistDetail.description.split('\n').join('<br />')}
+              {artistDetail?.description.split('\n').join('<br />')}
             </DescriptionContainer>
           </ContentContainer>
         </div>

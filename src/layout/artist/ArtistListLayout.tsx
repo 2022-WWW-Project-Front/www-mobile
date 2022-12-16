@@ -1,19 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { Artist } from '../../types';
 
 interface ArtistListProps {
-  artistList: {
-    id: number;
-    genre: string;
-    name: string;
-    nickname: string;
-    profileImage: string;
-    email: string;
-    contact: string;
-    description: string;
-    bio: string;
-  }[];
+  artistList: Artist[];
 }
 
 const ArtistListLayout = ({ artistList }: ArtistListProps) => {

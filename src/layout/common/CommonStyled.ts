@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 
-export const Container = styled.div<{ length: number }>`
+export const Container = styled.div<{ length: number | undefined }>`
   width: 100%;
-  height: ${({ length }) => length * 50 + 100}vw;
+  height: ${({ length }) => (length ? `(${length} * 50 + 100)vh` : '80vh')};
   position: relative;
 `;
 
