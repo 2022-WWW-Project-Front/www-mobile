@@ -15,7 +15,7 @@ const ArtistListLayout = ({ artistList }: ArtistListProps) => {
         {artistList?.map((artist) => (
           <Link to={`${artist.id}`} key={artist.id}>
             <ArtistCard>
-              <img src={`${artist.profileImage}`} alt={artist.nickname} />
+              <img src={`${artist.profileImage.replace('.jpeg', '_360p.jpeg')}`} alt={artist.nickname} />
             </ArtistCard>
           </Link>
         ))}
@@ -53,12 +53,14 @@ const ArtistContainer = styled.div`
 const ArtistCard = styled.div`
   overflow: hidden;
   position: relative;
-  background-color: var(--black-100);
+  background-color: rgba(226, 227, 249, 0.66);
+
   &:after {
     content: '';
     display: block;
     padding-bottom: 100%;
   }
+
   img {
     width: 100%;
     position: absolute;

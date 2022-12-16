@@ -15,7 +15,7 @@ const FashionLayout = ({ artworkList, isLoading }: ArtworkListByGenre) => {
   useEffect(() => {
     setTimeout(() => {
       dispatch(artworkListLoading());
-    }, 5000);
+    }, 1500);
   }, [artworkList]);
 
   return (
@@ -26,11 +26,11 @@ const FashionLayout = ({ artworkList, isLoading }: ArtworkListByGenre) => {
           return (
             <S.ImageBox
               key={artwork.url + idx}
-              url={artwork.url}
+              url={artwork.url.replace('.jpeg', '_360p.jpeg')}
               index={idx}
               onClick={() => navigate(`/artwork-detail/${artwork.artist.id}`)}
             >
-              <img src={artwork.url} alt={artwork.genre} />
+              <img src={artwork.url.replace('.jpeg', '_360p.jpeg')} alt={artwork.genre} />
             </S.ImageBox>
           );
         })}
