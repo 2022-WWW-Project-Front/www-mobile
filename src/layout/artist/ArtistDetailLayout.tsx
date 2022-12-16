@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled, { keyframes } from 'styled-components';
 import CloseBtn from '../common/Icon/CloseBtn';
 import * as S from '../common/CommonStyled';
@@ -12,6 +12,12 @@ interface ArtistDetailProps {
 }
 
 const ArtistDetailLayout = ({ artistDetail, isLoading, backToList }: ArtistDetailProps) => {
+  const bio = useRef(null);
+  useEffect(() => {
+    if (artistDetail) {
+      bio.current.innerText = artistDetail.bio;
+    }
+  }, [artistDetail?.bio]);
   return (
     <ArtistDetailContainer>
       {isLoading ? (
@@ -52,7 +58,7 @@ const ArtistDetailLayout = ({ artistDetail, isLoading, backToList }: ArtistDetai
           </ProfileImgContianer>
           <ContentContainer>
             <strong>{artistDetail?.description}</strong>
-            <div>{artistDetail?.bio}</div>
+            <div ref={bio}>{artistDetail?.bio}</div>
           </ContentContainer>
         </div>
       )}

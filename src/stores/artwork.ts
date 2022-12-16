@@ -4,12 +4,14 @@ interface artworkState {
   activeSlideIdx: number;
   activePart: string;
   topBtn: boolean;
+  delayLoading: boolean;
 }
 
 const initialState: artworkState = {
   activeSlideIdx: 0,
   activePart: 'visual',
-  topBtn: true
+  topBtn: true,
+  delayLoading: true
 };
 
 export const artworkSlice = createSlice({
@@ -22,10 +24,13 @@ export const artworkSlice = createSlice({
     },
     setTopBtn(state, action) {
       state.topBtn = action.payload;
+    },
+    artworkListLoading(state) {
+      state.delayLoading = false;
     }
   }
 });
 
-export const { setActive, setTopBtn } = artworkSlice.actions;
+export const { setActive, setTopBtn, artworkListLoading } = artworkSlice.actions;
 
 export default artworkSlice.reducer;
