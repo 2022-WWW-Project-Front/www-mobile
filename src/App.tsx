@@ -35,7 +35,7 @@ export const App = () => {
     } else {
       window.location.href = 'https://wwweb.kr/';
     }
-  }, [isMobile]);
+  }, []);
   return (
     <Provider store={store}>
       <Header />
