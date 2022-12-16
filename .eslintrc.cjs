@@ -31,5 +31,6 @@ module.exports = {
     'react/no-unused-state': 'warn', // 사용되지 않는 state
     'react/jsx-key': 'warn', // 반복문으로 생성하는 요소에 key 강제
     'react/jsx-boolean-value': 'warn', // 프롭값이 불린 속성의 경우 값을 생략하도록 경고
+    'react/prop-types': 0
   },
 };

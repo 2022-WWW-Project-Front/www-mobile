@@ -1,15 +1,15 @@
 import React from 'react';
 import * as S from '../common/CommonStyled';
 import { useNavigate } from 'react-router-dom';
-import { ArtworkProps } from '../../page/Artwork';
+import { Artwork, ArtworkListByGenre } from '../../types';
 
-const FashionLayout = ({ artworkList, isLoading }: ArtworkProps) => {
+const FashionLayout = ({ artworkList, isLoading }: ArtworkListByGenre) => {
   const navigate = useNavigate();
 
   return (
     <S.Container length={artworkList?.length}>
       {!isLoading &&
-        artworkList.map((artwork, idx) => {
+        artworkList?.map((artwork: Artwork, idx: number) => {
           return (
             <S.ImageBox
               key={artwork.url}

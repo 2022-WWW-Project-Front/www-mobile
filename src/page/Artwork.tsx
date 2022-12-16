@@ -16,6 +16,7 @@ import { type Swiper as SwiperRef } from 'swiper';
 import { History } from 'swiper';
 import 'swiper/css/bundle';
 import 'swiper/css';
+import { SwiperSlideChangeProps } from '../types';
 
 const Artwork = () => {
   const { pathname } = useLocation();
@@ -27,8 +28,10 @@ const Artwork = () => {
     (pathname === '/artwork' || pathname === '/artwork/') && navigate('/artwork/visual');
   }, [pathname]);
 
-  const onSlideChangeHistory = (props: any) => {
-    dispatch(setActive({ idx: props.realIndex, part: props.slides[props.realIndex].dataset.history }));
+  const onSlideChangeHistory = (props: SwiperSlideChangeProps) => {
+    const slide = props.slides[props.realIndex];
+
+    dispatch(setActive({ idx: props.realIndex, part: slide['dataset'].history }));
     window.scrollTo(0, 0);
   };
 
@@ -38,7 +41,7 @@ const Artwork = () => {
   };
 
   return (
-    <div style={{ paddingTop: '11.1rem' }}>
+    <div style={{ paddingTop: '11.592rem' }}>
       <ArtworkCategory changeSlide={changeSlide} />
       <SwiperContainer>
         <Swiper
@@ -79,17 +82,15 @@ export default Artwork;
 
 const SwiperContainer = styled.div`
   background: var(--gradation-bg);
-  min-height: 100vh;
+  min-height: 50vh;
   .swiper {
     width: 100%;
     height: 100%;
   }
 
   .swiper-slide {
-    min-height: 100vh;
     text-align: center;
     font-size: 18px;
-    background: var(--gradation-bg);
 
     /* Center slide text vertically */
     display: -webkit-box;
