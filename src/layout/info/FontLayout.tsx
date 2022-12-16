@@ -1,8 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
-const FontLayout = () => {
+interface FontProps {
+  ttfFont: string;
+  otfFont: string;
+}
+
+const FontLayout = ({ ttfFont, otfFont }: FontProps) => {
   return (
     <div>
       <TitleArea>
@@ -40,8 +44,8 @@ const FontLayout = () => {
         <span>FontCopyrightⓒDISP</span>
       </Description>
       <ButtonPlace>
-        <Link to="">WWW TTF</Link>
-        <Link to="">WWW OTF</Link>
+        <button onClick={() => window.open(ttfFont)}>WWW TTF</button>
+        <button onClick={() => window.open(otfFont)}>WWW OTF</button>
       </ButtonPlace>
     </div>
   );
@@ -100,8 +104,8 @@ const ButtonPlace = styled.div`
   justify-content: center;
   gap: 1rem;
   margin-bottom: 10rem;
-  a {
-    width: 7rem;
+  button {
+    width: 10rem;
     height: 3.5rem;
     color: var(--white);
     font-size: 1.125rem;

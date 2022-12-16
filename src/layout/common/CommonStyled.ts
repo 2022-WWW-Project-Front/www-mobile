@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const Container = styled.div<{ length: number }>`
   width: 100%;
-  height: ${({ length }) => (length + 1.4) * 50}vw;
+  height: ${({ length }) => length * 50 + 100}vw;
   position: relative;
 `;
 
@@ -11,30 +11,31 @@ export const ImageBox = styled.div<{ url: string; index: number }>`
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: ${({ index }) => (index + 0.2) * 50}vw;
+  top: ${({ index }) => index * 55 + 2}vw;
   overflow: hidden;
+  background-repeat: no-repeat;
   ${({ index }) => {
     if (index % 4 === 1) {
       return css`
-        width: 50%;
+        width: 53%;
         left: ${(index % 4) + 1.25}rem;
-        z-index: 2;
+        z-index: 3;
       `;
     } else if (index % 4 === 2) {
       return css`
-        width: 53%;
+        width: 48%;
         right: ${(index % 3) + 1.25}rem;
-        z-index: 4;
+        z-index: 1;
       `;
     } else if (index % 4 === 3) {
       return css`
-        width: 47%;
+        width: 56%;
         left: ${index % 4}rem;
-        z-index: 3;
+        z-index: 4;
       `;
     } else {
       return css`
-        width: 43%;
+        width: 53%;
         right: ${(index % 4) + 1.25}rem;
       `;
     }

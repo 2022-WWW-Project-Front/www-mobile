@@ -28,7 +28,7 @@ export const apiSlice = createApi({
         return response.data;
       }
     }),
-    artistDetail: builder.query<any, number>({
+    artistDetail: builder.query<any, string>({
       query: (artistId) => ({
         url: `/artists/${artistId}`,
         method: 'GET'
@@ -39,16 +39,21 @@ export const apiSlice = createApi({
     }),
     artworkListByGenre: builder.query<any, string>({
       query: (genre) => ({
-        url: `/api/assets/${genre}`,
+        url: `/asset/${genre}`,
         method: 'GET'
-      })
+      }),
+      transformResponse: (response: { data: Artist[] }) => {
+        return response.data;
+      }
     }),
-    artworkDetailByArtist: builder.query<any, number>({
-      query: (artistCode) => ({
-        url: `/api/assets`,
-        method: 'GET',
-        body: { code: artistCode }
-      })
+    artworkDetailByArtist: builder.query<any, string>({
+      query: (artistId) => ({
+        url: `/artworks/${artistId}`,
+        method: 'GET'
+      }),
+      transformResponse: (response: { data: Artist[] }) => {
+        return response.data;
+      }
     })
   })
 });

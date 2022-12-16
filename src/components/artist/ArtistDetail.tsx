@@ -6,7 +6,7 @@ import { useArtistDetailQuery } from '../../stores/rtkQuery';
 const ArtistDetail = () => {
   const { pathname } = useLocation();
   const artistId = pathname.split('/')[2];
-  const { data: artistDetail, isLoading } = useArtistDetailQuery(Number(artistId));
+  const { data: artistDetail, isLoading } = useArtistDetailQuery(artistId);
   const navigate = useNavigate();
   const backToList = () => {
     navigate('/artist');

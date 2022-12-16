@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import CloseBtn from '../common/Icon/CloseBtn';
 import * as S from '../common/CommonStyled';
@@ -6,8 +6,14 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper';
 import { useNavigate } from 'react-router-dom';
 
-const ArtworkDetailLayout = () => {
+interface ArtworkDetailProps {
+  artistDetail: any;
+  isLoading: boolean;
+}
+
+const ArtworkDetailLayout = ({ artistDetail, isLoading }: ArtworkDetailProps) => {
   const navigate = useNavigate();
+  const descriptionBox = useRef(null);
   const swiperStyle = {
     overflow: 'visible',
     width: '100%',
@@ -18,73 +24,67 @@ const ArtworkDetailLayout = () => {
   const handle = () => {
     if (navigator.share) {
       navigator.share({
-        title: '작품이름',
-        text: 'Hello World',
-        url: 'https://m.wwweb.kr/artist-detail/'
+        title: artistDetail.title,
+        text: artistDetail.description,
+        url: `https://m.wwweb.kr/artist-detail/${artistDetail.id}`
       });
     } else if (navigator.clipboard) {
       navigator.clipboard
-        .writeText(`https://m.wwweb.kr/artist-detail/`)
+        .writeText(`https://m.wwweb.kr/artist-detail/${artistDetail.id}`)
         .then(() => alert('링크가 클립보드에 복사되었습니다.'));
     } else {
       alert('공유하기가 지원되지 않는 환경 입니다.');
     }
   };
+  useEffect(() => {
+    // descriptionBox?.current?.innerHTML = artistDetail.description
+  }, [artistDetail]);
 
-  const artworkList = [
-    '/assets/test/5.jpg',
-    '/assets/test/6.jpg',
-    '/assets/test/7.jpg',
-    '/assets/test/8.jpg'
-  ];
   return (
     <ArtworkDetailContainer>
-      <SwiperContainer>
-        <S.BtnBox onClick={() => navigate(-1)}>
-          <CloseBtn color="var(--white)" />
-        </S.BtnBox>
-        <Swiper
-          style={swiperStyle}
-          modules={[Pagination, Navigation]}
-          pagination={{
-            type: 'fraction'
-          }}
-          navigation={true}
-        >
-          {artworkList.map((artwork) => (
-            <SwiperSlide key={artwork}>
-              <OneArtwork src={artwork} alt={artwork} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <S.BtnContainer>
-          <S.Btn bgColor="var(--main1)" border={false}>
-            Artist<span>{'>'}</span>
-          </S.Btn>
-        </S.BtnContainer>
-      </SwiperContainer>
-      <ContentContainer>
-        <ShareBtn onClick={handle}>
-          <img src="/assets/share.png" alt="share button" />
-        </ShareBtn>
-        <TitleContainer>
-          <div>
-            <span>장르</span>
-            <span>작가명</span>
-          </div>
-          <strong>작품 소개우우ㅜ우</strong>
-        </TitleContainer>
+      {!isLoading && (
         <div>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-          et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-          veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 공백포한
-          700자로 제한합니다......
+          <SwiperContainer>
+            <S.BtnBox onClick={() => navigate(-1)}>
+              <CloseBtn color="var(--white)" />
+            </S.BtnBox>
+            <Swiper
+              style={swiperStyle}
+              modules={[Pagination, Navigation]}
+              pagination={{
+                type: 'fraction'
+              }}
+              navigation
+            >
+              {artistDetail.assets.map((asset: { url: string | undefined; artwork: string | undefined }) => (
+                <SwiperSlide key={asset.url}>
+                  <OneArtwork src={asset.url} alt={asset.url} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+            <S.BtnContainer>
+              <S.Btn bgColor="var(--main1)" border={false}>
+                Artist<span>{'>'}</span>
+              </S.Btn>
+            </S.BtnContainer>
+          </SwiperContainer>
+          <ContentContainer>
+            <ShareBtn onClick={handle}>
+              <img src="/assets/share.png" alt="share button" />
+            </ShareBtn>
+            <TitleContainer>
+              <div>
+                <span>{artistDetail.assets[0].genre}</span>
+                <span>{artistDetail.artist.nickname || artistDetail.artist.name}</span>
+              </div>
+              <strong>{artistDetail.title}</strong>
+            </TitleContainer>
+            <DescriptionContainer ref={descriptionBox}>
+              {artistDetail.description.split('\n').join('<br />')}
+            </DescriptionContainer>
+          </ContentContainer>
         </div>
-      </ContentContainer>
+      )}
     </ArtworkDetailContainer>
   );
 };
@@ -163,8 +163,13 @@ const TitleContainer = styled.div`
   }
 `;
 
+const DescriptionContainer = styled.div`
+  line-height: 148.34%;
+`;
+
 const ShareBtn = styled.div`
   position: absolute;
   top: 2.625rem;
   right: 1.375rem;
+  white-space: pre-wrap;
 `;
