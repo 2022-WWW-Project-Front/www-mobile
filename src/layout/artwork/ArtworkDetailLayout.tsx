@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import styled from 'styled-components';
 import CloseBtn from '../common/Icon/CloseBtn';
 import * as S from '../common/CommonStyled';
@@ -15,6 +15,13 @@ interface ArtworkDetailProps {
 const ArtworkDetailLayout = ({ artistDetail, isLoading }: ArtworkDetailProps) => {
   const navigate = useNavigate();
   const descriptionBox = useRef(null);
+
+  useEffect(() => {
+    if (artistDetail) {
+      descriptionBox.current.innerText = artistDetail?.description;
+    }
+  }, [artistDetail]);
+
   const swiperStyle = {
     overflow: 'visible',
     width: '100%',
@@ -22,6 +29,7 @@ const ArtworkDetailLayout = ({ artistDetail, isLoading }: ArtworkDetailProps) =>
     display: 'flex',
     justifyContent: 'center'
   };
+
   const handle = () => {
     if (navigator.share) {
       navigator.share({
@@ -37,9 +45,16 @@ const ArtworkDetailLayout = ({ artistDetail, isLoading }: ArtworkDetailProps) =>
       alert('공유하기가 지원되지 않는 환경 입니다.');
     }
   };
-  useEffect(() => {
-    // descriptionBox?.current?.innerHTML = artistDetail.description
-  }, [artistDetail]);
+
+  const thumbnailSort = (artistDetail) => {
+    if (artistDetail) {
+      const assets = artistDetail.assets;
+      const main = assets.find((asset) => asset.isMain);
+      return [main, ...assets.filter((asset) => !asset.isMain)];
+    }
+  };
+
+  const newAssets = useMemo(() => thumbnailSort(artistDetail), [artistDetail]);
 
   return (
     <ArtworkDetailContainer>
@@ -57,9 +72,14 @@ const ArtworkDetailLayout = ({ artistDetail, isLoading }: ArtworkDetailProps) =>
               }}
               navigation
             >
-              {artistDetail?.assets.map((assets) => (
-                <SwiperSlide key={assets.url}>
-                  <OneArtwork src={assets.url} alt={assets.url} />
+              {newAssets.map((asset) => (
+                <SwiperSlide key={asset.url}>
+                  {asset.type === 'image' && <Image src={asset.url} alt={asset.url} />}
+                  {asset.type === 'video' && (
+                    <Video src={asset.url} playsInline loop muted controls>
+                      <source src={asset.url} type="video/mp4" />
+                    </Video>
+                  )}
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -80,9 +100,7 @@ const ArtworkDetailLayout = ({ artistDetail, isLoading }: ArtworkDetailProps) =>
               </div>
               <strong>{artistDetail?.title}</strong>
             </TitleContainer>
-            <DescriptionContainer ref={descriptionBox}>
-              {artistDetail?.description.split('\n').join('<br />')}
-            </DescriptionContainer>
+            <DescriptionContainer ref={descriptionBox}>{artistDetail?.description}</DescriptionContainer>
           </ContentContainer>
         </div>
       )}
@@ -127,7 +145,7 @@ const SwiperContainer = styled.div`
   }
 `;
 
-const OneArtwork = styled.img`
+const Image = styled.img`
   display: block;
   margin: 0 auto;
   width: 100%;
@@ -135,6 +153,15 @@ const OneArtwork = styled.img`
   background-size: contain;
   object-fit: contain;
   background-repeat: no-repeat;
+`;
+
+const Video = styled.video`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
 `;
 
 const ContentContainer = styled.div`

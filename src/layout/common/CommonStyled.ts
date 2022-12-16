@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const Container = styled.div<{ length: number | undefined }>`
   width: 100%;
-  height: ${({ length }) => (length ? `(${length} * 50 + 100)vh` : '80vh')};
+  height: ${({ length }) => length * 30}vh;
   position: relative;
 `;
 
@@ -11,7 +11,7 @@ export const ImageBox = styled.div<{ url: string; index: number }>`
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: ${({ index }) => index * 55 + 2}vw;
+  top: ${({ index }) => index * 55 + 15}vw;
   overflow: hidden;
   background-repeat: no-repeat;
   ${({ index }) => {
@@ -19,19 +19,19 @@ export const ImageBox = styled.div<{ url: string; index: number }>`
       return css`
         width: 53%;
         left: ${(index % 4) + 1.25}rem;
-        z-index: 3;
+        z-index: 1;
       `;
     } else if (index % 4 === 2) {
       return css`
-        width: 48%;
+        width: 50%;
         right: ${(index % 3) + 1.25}rem;
-        z-index: 1;
+        z-index: 3;
       `;
     } else if (index % 4 === 3) {
       return css`
         width: 56%;
         left: ${index % 4}rem;
-        z-index: 4;
+        z-index: 2;
       `;
     } else {
       return css`
