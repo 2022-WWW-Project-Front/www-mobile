@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { Artist, Artwork, ArtworkDetailByArtist } from '../types';
 
 const rtkQuery = fetchBaseQuery({
-  baseUrl: import.meta.env.VITE_BASE_API_URL
+  baseUrl: 'https://api.wwweb.kr/api'
 });
 
 export const apiSlice = createApi({

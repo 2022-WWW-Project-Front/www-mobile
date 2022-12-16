@@ -74,7 +74,9 @@ const ArtworkDetailLayout = ({ artistDetail, isLoading }: ArtworkDetailProps) =>
             >
               {newAssets.map((asset) => (
                 <SwiperSlide key={asset.url}>
-                  {asset.type === 'image' && <Image src={asset.url} alt={asset.url} />}
+                  {asset.type === 'image' && (
+                    <Image src={asset.url.replace('.jpeg', '_720p.jpeg')} alt={asset.url} />
+                  )}
                   {asset.type === 'video' && (
                     <Video src={asset.url} playsInline loop muted controls>
                       <source src={asset.url} type="video/mp4" />
