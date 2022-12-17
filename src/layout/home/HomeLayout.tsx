@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
 interface HomeProps {
@@ -16,9 +16,27 @@ const HomeLayout = ({ downloadBook }: HomeProps) => {
     'https://dp4qv0164jysa.cloudfront.net/video/www_motion_7.mp4',
     'https://dp4qv0164jysa.cloudfront.net/video/www_motion_9.mp4'
   ];
-  const randomNum = (start: number, end: number) => {
-    return Math.floor(Math.random() * (end - start + 1) + start);
+
+  const shuffle = (array) => {
+    array.sort(() => Math.random() - 0.5);
   };
+
+  let videoIndex = 0;
+  const resetVideo = (event) => {
+    const video = event.target;
+    if (videoIndex > videoSource.length - 1) {
+      shuffle(videoSource);
+      video.src = videoSource[0];
+      return;
+    }
+    videoIndex += 1;
+    video.src = videoSource[videoIndex];
+  };
+
+  useEffect(() => {
+    shuffle(videoSource);
+  }, []);
+
   return (
     <div>
       <MainBar>
@@ -33,8 +51,8 @@ const HomeLayout = ({ downloadBook }: HomeProps) => {
         </DownLoadBook>
       </MainBar>
       <VideoPlace>
-        <video autoPlay playsInline loop muted>
-          <source src={videoSource[randomNum(0, 4)]} type="video/mp4" />
+        <video autoPlay playsInline muted onEnded={(event) => resetVideo(event)}>
+          <source src={videoSource[videoIndex]} type="video/mp4" />
         </video>
       </VideoPlace>
     </div>
