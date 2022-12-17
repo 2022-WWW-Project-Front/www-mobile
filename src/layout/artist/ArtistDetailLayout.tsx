@@ -29,7 +29,7 @@ const ArtistDetailLayout = ({ artistDetail, isLoading, backToList }: ArtistDetai
               <ProfileImage profile={artistDetail?.profileImage.replace('.jpg', '_360p.jpeg')} />
               <Introduce>
                 <span>{artistDetail?.genre}</span>
-                <span>{artistDetail.nickname ? artistDetail.nickname : artistDetail.name}</span>
+                <span>{artistDetail ? artistDetail?.nickname : artistDetail?.name}</span>
               </Introduce>
             </div>
             <S.BtnBox onClick={backToList}>
