@@ -35,7 +35,7 @@ const ArtworkDetailLayout = ({ artistDetail, isLoading }: ArtworkDetailProps) =>
       navigator.share({
         title: artistDetail?.title,
         text: artistDetail?.title,
-        url: `https://m.wwweb.kr/artist-detail/${artistDetail?.artist.id}`
+        url: `https://m.wwweb.kr/artwork-detail/${artistDetail?.artist.id}`
       });
     } else if (navigator.clipboard) {
       navigator.clipboard
