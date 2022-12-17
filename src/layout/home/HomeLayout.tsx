@@ -26,7 +26,8 @@ const HomeLayout = ({ downloadBook }: HomeProps) => {
     const video = event.target;
     if (videoIndex > videoSource.length - 1) {
       shuffle(videoSource);
-      video.src = videoSource[0];
+      videoIndex = 0;
+      video.src = videoSource[videoIndex];
       return;
     }
     videoIndex += 1;
