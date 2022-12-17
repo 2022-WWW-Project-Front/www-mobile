@@ -41,7 +41,9 @@ const ArtistDetailLayout = ({ artistDetail, isLoading, backToList }: ArtistDetai
                   if (artistDetail.linkTree) {
                     window.open(artistDetail.linkTree);
                   } else if (artistDetail.email) {
-                    navigator.clipboard.writeText(artistDetail.email).then(() => alert('copied e-mail'));
+                    navigator.clipboard
+                      .writeText(artistDetail.email)
+                      .then(() => alert('이메일이 복사되었습니다.'));
                   }
                 }}
               >
