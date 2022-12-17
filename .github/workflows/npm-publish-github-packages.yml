@@ -27,9 +27,12 @@ jobs:
             ${{ runner.OS }}-
 
       - name: Create Environment File
+        env:
+          NAVER_MAPS_ENV: ${{ secrets.NAVER_MAPS_ENV }}
+          BASE_API_ENV: ${{ secrets.BASE_API_ENV }}
         run: |
-          echo ${{ secrets.NAVER_MAPS_ENV }} >> .env
-          cat .env
+          echo ${{ NAVER_MAPS_ENV }} >> .env
+          echo ${{ BASE_API_ENV }} >> .env
 
       - name: Install Dependencies # 의존성 설치
         run: yarn install
