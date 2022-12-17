@@ -86,7 +86,11 @@ const ArtworkDetailLayout = ({ artistDetail, isLoading }: ArtworkDetailProps) =>
               ))}
             </Swiper>
             <S.BtnContainer>
-              <S.Btn bgColor="var(--main1)" border={false}>
+              <S.Btn
+                onClick={() => navigate(`/artist/${artistDetail.artist.id}`)}
+                bgColor="var(--main1)"
+                border={false}
+              >
                 Artist<span>{'>'}</span>
               </S.Btn>
             </S.BtnContainer>

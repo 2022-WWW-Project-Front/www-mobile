@@ -1,11 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const HomeLayout = () => {
-  const videoSource = ['https://www-web-assets.s3.ap-northeast-2.amazonaws.com/video/www_motion_1.mp4', 'https://www-web-assets.s3.ap-northeast-2.amazonaws.com/video/www_motion_2.mp4', 'https://www-web-assets.s3.ap-northeast-2.amazonaws.com/video/www_motion_4-1.mp4', 'https://www-web-assets.s3.ap-northeast-2.amazonaws.com/video/www_motion_4-2.mp4', 'https://www-web-assets.s3.ap-northeast-2.amazonaws.com/video/www_motion_5.mp4']
-  const randomNum = (start:number, end:number) => {
-    return Math.floor((Math.random() * (end - start + 1)) + start);
-  }
+interface HomeProps {
+  downloadBook: () => void;
+}
+
+const HomeLayout = ({ downloadBook }: HomeProps) => {
+  const videoSource = [
+    'https://dp4qv0164jysa.cloudfront.net/video/www_motion_1.mp4',
+    'https://dp4qv0164jysa.cloudfront.net/video/www_motion_2.mp4',
+    'https://dp4qv0164jysa.cloudfront.net/video/www_motion_4-1.mp4',
+    'https://dp4qv0164jysa.cloudfront.net/video/www_motion_4-2.mp4',
+    'https://dp4qv0164jysa.cloudfront.net/video/www_motion_5.mp4',
+    'https://dp4qv0164jysa.cloudfront.net/video/www_motion_6.mp4',
+    'https://dp4qv0164jysa.cloudfront.net/video/www_motion_7.mp4',
+    'https://dp4qv0164jysa.cloudfront.net/video/www_motion_9.mp4'
+  ];
+  const randomNum = (start: number, end: number) => {
+    return Math.floor(Math.random() * (end - start + 1) + start);
+  };
   return (
     <div>
       <MainBar>
@@ -14,14 +27,14 @@ const HomeLayout = () => {
           <br />
           MARKET
         </Title>
-        <DownLoadBook>
+        <DownLoadBook onClick={downloadBook}>
           <span>Book</span>
           <img src="/assets/download.svg" alt="download icon" />
         </DownLoadBook>
       </MainBar>
       <VideoPlace>
         <video autoPlay playsInline loop muted>
-          <source src={videoSource[randomNum(0, 4)]} type="video/mp4"/>
+          <source src={videoSource[randomNum(0, 4)]} type="video/mp4" />
         </video>
       </VideoPlace>
     </div>
