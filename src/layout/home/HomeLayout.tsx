@@ -21,10 +21,11 @@ const HomeLayout = ({ downloadBook }: HomeProps) => {
     array.sort(() => Math.random() - 0.5);
   };
 
-  let videoIndex = 0;
+  let videoIndex = Math.floor(Math.random() * (videoSource.length - 1));
+
   const resetVideo = (event) => {
     const video = event.target;
-    if (videoIndex > videoSource.length - 1) {
+    if (videoIndex >= videoSource.length - 1) {
       shuffle(videoSource);
       videoIndex = 0;
       video.src = videoSource[videoIndex];

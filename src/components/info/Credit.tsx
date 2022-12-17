@@ -6,9 +6,9 @@ const Credit = () => {
     {
       part: 'Project manager',
       list: [
-        { role: 'var(--assist)', name: 'Artist All', links: null },
         { role: 'var(--lead)', name: 'DISP', links: 'https://linktr.ee/dispuni' },
-        { role: 'var(--serve)', name: 'Management All', links: null }
+        { role: 'var(--serve)', name: 'Management All', links: null },
+        { role: 'var(--assist)', name: 'Artist All', links: null }
       ]
     },
     {
