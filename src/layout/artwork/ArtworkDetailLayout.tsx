@@ -39,7 +39,7 @@ const ArtworkDetailLayout = ({ artistDetail, isLoading }: ArtworkDetailProps) =>
       });
     } else if (navigator.clipboard) {
       navigator.clipboard
-        .writeText(`https://m.wwweb.kr/artist-detail/${artistDetail?.id}`)
+        .writeText(`https://m.wwweb.kr/artwork-detail/${artistDetail?.id}`)
         .then(() => alert('링크가 클립보드에 복사되었습니다.'));
     } else {
       alert('공유하기가 지원되지 않는 환경 입니다.');
