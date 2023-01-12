@@ -29,11 +29,11 @@ import 'swiper/css/navigation';
 import { isMobile } from 'react-device-detect';
 
 export const App = () => {
-  useEffect(() => {
-    if (!isMobile) {
-      window.location.href = 'https://wwweb.kr/';
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (!isMobile) {
+  //     window.location.href = 'https://wwweb.kr/';
+  //   }
+  // }, []);
   return (
     <Provider store={store}>
       <Header />
