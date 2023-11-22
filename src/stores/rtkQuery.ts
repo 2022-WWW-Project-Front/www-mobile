@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { Artist, Artwork, ArtworkDetailByArtist } from '../types';
 
 const rtkQuery = fetchBaseQuery({
-  baseUrl: 'https://api.wwweb.kr/api'
+  baseUrl: 'http://www-application-load-balancer-1941995092.ap-northeast-2.elb.amazonaws.com'
 });
 
 export const apiSlice = createApi({
